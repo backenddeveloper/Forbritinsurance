@@ -1,0 +1,46 @@
+---
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: local
+      POSTGRES_USER: localuser
+      POSTGRES_PASSWORD: localpass
+      # psql -U $POSTGRES_USER -h localhost $POSTGRES_DB
+    ports:
+      - "5432:5432"
+
+  app:
+    image: python:3.10
+    ports:
+    - 8080:8080
+    # For development
+    command: sleep 100000000
+    # Normally an image would be built rather than run dynamically
+    # command: pip3 install -r requirements.txt\
+    #          && python3 -B -m uvicorn forbritinsurance.server:app --reload --port 8080 --host '0.0.0.0'
+    environment:
+      DATABASE_URL: postgresql://localuser:localpass@postgres/local
+      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      JWT_SECRET: development
+      APP_URL: ${APP_URL}
+    volumes:
+    - ./:/w
+    working_dir: /w
+    depends_on:
+      - postgres
+
+  frontend-dev:
+    image: node:20-buster
+    ports:
+    - 3000:3000
+    command: sleep 100000000
+    # command: npm install && npm run build
+    volumes:
+    - ./react:/w
+    working_dir: /w
+    depends_on:
+      - app
