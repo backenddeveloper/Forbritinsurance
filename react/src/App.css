@@ -1,0 +1,93 @@
+body {
+    background: #4472c4;
+    color: black;
+    text-align:center;
+}
+
+button {
+    background-image: linear-gradient(#ffa364, #ed7d31);
+    border: 1px solid #ae6944;
+    color: white;
+    padding: 1rem;
+}
+
+input {
+    background-image: linear-gradient(#ffa364, #ed7d31);
+    border: 1px solid #ae6944;
+    border-radius: 10px;
+    color: white;
+    padding: 1rem;
+    margin-right: 1vw;
+}
+
+::placeholder {
+    color: white;
+}
+
+.logout {
+    top: 3vh;
+    right: 2vw;
+    position: absolute;
+}
+
+.login {
+    left: 5vw;
+    top: 1vh;
+    position: relative;
+}
+
+.signup {
+    top: 3vh;
+    right: 2vw;
+    position: absolute;
+}
+
+.signupinput {
+    width: 40vw;
+}
+
+table {
+    width: 60vw;
+    left: 30vw;
+    position: absolute;
+    text-align: left;
+}
+
+.summary {
+    position: relative;
+    left: 15vw;
+    top: 20vh;
+}
+
+.new {
+    position: relative;
+    left: 14vw;
+    top: 20vh;
+}
+
+.back {
+    position: relative;
+    left: 25vw;
+    top: 20vh;
+}
+
+.create {
+    position: relative;
+    left: 7vw;
+    width: 14vw;
+    top: 1vh;
+}
+
+.signin {
+    position: relative;
+    left: 7vw;
+    width: 14vw;
+    top: 1vh;
+}
+
+.signup {
+    position: relative;
+    left: 6vw;
+    width: 14vw;
+    top: 1vh;
+}
